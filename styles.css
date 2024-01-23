@@ -1,0 +1,70 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Helvetica Neue";
+}
+
+body, input, select, option, button {
+  font-size: 13px;
+  max-width: 90%;
+  padding-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trade-card {
+  background: #f1f1f1;
+  max-width: 200px;
+}
+
+h1 {
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+  margin-bottom: 0;
+}
+
+.trade-list {
+  padding: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.trade-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+span:first-child {
+  color: #333333;
+}
+
+.above span:last-child {
+  color: #51cf66;
+}
+
+.below span:last-child  {
+  color: #ff6b6b;
+}
+
+span {
+  width: 45%;
+  text-align: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td {
+  text-align: right;
+  border-right: 1px solid black;
+}
+table th {
+  border-bottom: 1px solid black;
+  text-align: left;
+}

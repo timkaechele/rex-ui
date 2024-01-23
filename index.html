@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REX</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="trade-card">
+    <h1>Trades</h1>
+    <div class="trade-list" id="trades"></div>
+  </div>
+  <script id="order-form" type="text/handlebar">
+    <form>
+      <label for="price-input">Price</label>
+      <input oninput="this.value=(parseInt(this.value))" id="price-input" name="price" type="number">
+      €
+      <br>
+      <label for="quantity-input">Quantity</label>
+      <input oninput="this.value=(parseInt(this.value))"  id="quantity-input" name="quantity" type="number">
+      <br>
+      <label for="side-input">Side</label>
+      <select id="side-input" name="side">
+        <option value="buy">BUY</option>
+        <option value="sell">SELL</option>
+      </select>
+      <br>
+      <input type="submit">
+    </form>
+  </script>
+
+  <script id="simple-log" type="text/handlebar">
+    {{#each events}}
+    <p>
+      {{this}}
+      <br>
+      ----
+    </p>
+    {{/each}}
+  </script>
+
+  <script id="trades-list" type="text/handlebar">
+      <table>
+        <thead>
+          <th>Quantity</th>
+          <th>Price</th>
+        </thead>
+        <tbody>
+          {{#each trades}}
+            <tr>
+              <td>{{ this.quantity }}</td>
+              <td>{{ this.price }} €</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+  </script>
+
+  <script id="limits-table-template" type="text/handlebar">
+    <table>
+      <thead>
+        <th>Side</th>
+        <th>Price</th>
+        <th>Quanity</th>
+        <th>Volume</th>
+      </thead>
+      <tbody>
+        {{#each limits }}
+          <tr>
+            <td>{{side}}</td>
+            <td>{{price}}</td>
+            <td>{{quantity}}</td>
+            <td>{{volume}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </script>
+  <script src="/dist/app.js"></script>
+</body>
+</html>
