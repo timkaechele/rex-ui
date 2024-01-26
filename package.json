@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/app.js --outdir=dist --watch --bundle --servedir=."
+    "build": "esbuild src/app.jsx --outdir=dist --watch --bundle --servedir=."
   },
   "author": "Tim Kächele",
   "license": "ISC",
@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "chart.js": "^4.4.1",
-    "handlebars": "^4.7.8"
+    "handlebars": "^4.7.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

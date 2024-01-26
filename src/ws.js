@@ -1,5 +1,3 @@
-
-
 export default class WebsocketConnection {
   constructor(config) {
     this.config = config

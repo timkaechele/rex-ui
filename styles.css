@@ -6,7 +6,7 @@ html {
   font-family: "Helvetica Neue";
 }
 
-body, input, select, option, button {
+body {
   font-size: 13px;
   max-width: 90%;
   padding-top: 2rem;
@@ -56,7 +56,9 @@ span {
 }
 
 table {
-  width: 100%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: collapse;
 }
 
@@ -67,4 +69,25 @@ table td {
 table th {
   border-bottom: 1px solid black;
   text-align: left;
+}
+
+.flex {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.orders {
+  margin-left: 1rem;
+  width: 250px;
+  max-height: 250px;
+  background: #f1f1f1;
+  overflow-y: scroll;
+}
+
+.orderbook-side {
+  margin-right: 1rem;
+}
+.book {
+  width: 500px;
 }
