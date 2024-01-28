@@ -2,92 +2,47 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: "Helvetica Neue";
-}
-
 body {
-  font-size: 13px;
-  max-width: 90%;
-  padding-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
 }
 
-.trade-card {
-  background: #f1f1f1;
-  max-width: 200px;
+/**
+ * Grid
+ */
+.grid {
+  display: grid;
+  grid-template-columns: [left] 25% [left-end center] auto [center-end right] 25% [right-end];
+  grid-template-rows: [top] 50% [bottom] 50% [bottom-end];
+  height: 100vh;
 }
 
-h1 {
-  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
-  font-size: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid black;
-  margin-bottom: 0;
+.left-sidebar {
+  grid-column-start: left;
+  grid-column-end: span left-end;
+  grid-row-start: top;
+  grid-row-end: span bottom-end;
 }
 
-.trade-list {
-  padding: 1.5rem;
-  padding-top: 0.5rem;
+.right-sidebar {
+  grid-column-start: right;
+  grid-column-end: right-end;
+  grid-row-start: top;
+  grid-row-end: span bottom-end;
 }
 
-.trade-list li {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.25rem;
+.center-top {
+  grid-column-start: center;
+  grid-column-end: center-end;
 }
 
-span:first-child {
-  color: #333333;
+.center-bottom {
+  grid-column-start: center;
+  grid-column-end: center-end;
 }
 
-.above span:last-child {
-  color: #51cf66;
-}
-
-.below span:last-child  {
-  color: #ff6b6b;
-}
-
-span {
-  width: 45%;
-  text-align: right;
-}
-
-table {
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  border-collapse: collapse;
-}
-
-table td {
-  text-align: right;
-  border-right: 1px solid black;
-}
-table th {
-  border-bottom: 1px solid black;
-  text-align: left;
-}
-
-.flex {
-  display: flex;
-  justify-content: start;
-  align-items: flex-start;
-}
-
-.orders {
-  margin-left: 1rem;
-  width: 250px;
-  max-height: 250px;
-  background: #f1f1f1;
-  overflow-y: scroll;
-}
-
-.orderbook-side {
-  margin-right: 1rem;
-}
-.book {
-  width: 500px;
+input, select, option, button {
+  font-size: inherit;
 }
