@@ -17,8 +17,6 @@ export default class WebsocketConnection {
     if (handler !== undefined && handler !== null) {
       handler(data)
     }
-
-    console.log(data)
   }
 
   setHandler(eventName, handler) {
@@ -52,6 +50,18 @@ export default class WebsocketConnection {
     this.sendMessage(authRequest)
   }
 
+  sendCancelOrder(orderId) {
+    const cancelRequest = {
+      type: "request",
+      request_id: this.nextRequestId(),
+      name: "order.cancel",
+      args: {
+        id: orderId
+      }
+    }
+    this.sendMessage(cancelRequest)
+  }
+
   sendTrade(tradeData) {
     const tradeRequest = {
       type: "request",
@@ -64,13 +74,48 @@ export default class WebsocketConnection {
       }
     }
 
-    this.websocket.send(JSON.stringify(tradeRequest));
+    this.sendMessage(tradeRequest);
+  }
+
+  fetchOrders() {
+    const fetchOrdersRequest = {
+      type: "request",
+      request_id: this.nextRequestId(),
+      name: "orders.fetch",
+      args: {
+      }
+    }
+
+    this.sendMessage(fetchOrdersRequest);
+  }
+
+  fetchOrderBook() {
+    const fetchOrderBookRequest = {
+      type: "request",
+      request_id: this.nextRequestId(),
+      name: "orderbook.fetch",
+      args: {
+      }
+    }
+
+    this.sendMessage(fetchOrderBookRequest);
+  }
+
+  fetchTrades() {
+    const fetchTradesRequest = {
+      type: "request",
+      request_id: this.nextRequestId(),
+      name: "trades.fetch",
+      args: {
+      }
+    }
+
+    this.sendMessage(fetchTradesRequest);
   }
 
   flushMessageQueue() {
     let i = 0
     while(this.messageQueue.length != 0) {
-      console.log(i)
       i++;
       let message = this.messageQueue.shift()
       this.websocket.send(message)

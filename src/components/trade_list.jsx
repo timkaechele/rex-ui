@@ -10,11 +10,11 @@ export default function TradeList(props) {
           </tr>
         </thead>
         <tbody>
-          {props.trades.map((trade) => {
+          {props.trades.toReversed().map((trade) => {
             return(
               <tr key={trade.id}>
-                <td>{trade.quantity}</td>
-                <td>{trade.price} €</td>
+                <td class="text-end">{trade.quantity}</td>
+                <td class="text-end">{trade.price} €</td>
               </tr>
             )
           })}

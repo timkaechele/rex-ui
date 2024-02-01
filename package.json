@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/app.jsx --outdir=dist --jsx=automatic --watch --bundle --servedir=."
+    "build": "esbuild src/app.jsx --outdir=dist --minify --sourcemap --jsx=automatic --bundle",
+    "server": "esbuild src/app.jsx --outdir=dist --minify --sourcemap --jsx=automatic --bundle --watch --servedir=."
   },
   "author": "Tim Kächele",
   "license": "ISC",

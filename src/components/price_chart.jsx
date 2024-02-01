@@ -23,29 +23,32 @@ ChartJS.register(
 export default function PriceChart(props) {
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
+    animation: false,
     plugins: {
       legend: {
         position: 'top',
       },
       title: {
         display: true,
-        text: 'Prices',
+        text: 'Price History',
       },
     },
   };
-
-  console.log(props)
 
   const data = {
     labels:  props.labels,
     datasets: [
     {
       label: "Price",
-      data: props.data
+      data: props.data,
+      borderColor: '#000000',
     }]
   }
 
   return(
-    <Line options={options} data={data} />
+    <div style={{ position: "relative", height: "100%" }}>
+      <Line options={options} data={data} />
+    </div>
     );
 }
